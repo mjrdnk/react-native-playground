@@ -20,6 +20,7 @@ import LotsOfStyles from './src/components/guide/Styler';
 import FlexDimensionsBasics from './src/components/guide/Dimensions.js';
 import PizzaTranslator from './src/components/guide/Pizzify.js';
 import Butonizer from './src/components/guide/Butonizer.js';
+import FlatListBasic from './src/components/guide/FlatListBasic.js';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -44,6 +45,7 @@ export default class App extends Component {
         <FlexDimensionsBasics />
         <PizzaTranslator />
         <Butonizer />
+        <FlatListBasic />
       </ScrollView>
     );
   }
