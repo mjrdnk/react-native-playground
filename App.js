@@ -21,6 +21,8 @@ import FlexDimensionsBasics from './src/components/guide/Dimensions.js';
 import PizzaTranslator from './src/components/guide/Pizzify.js';
 import Butonizer from './src/components/guide/Butonizer.js';
 import FlatListBasic from './src/components/guide/FlatListBasic.js';
+import SectionListBasic from './src/components/guide/SectionListBasic.js';
+import MoviesWithPromise from './src/components/guide/MoviesWithPromise.js';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -31,21 +33,30 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   render() {
+
+    function getMoviesFromApiAsync() {
+      return fetch('https://facebook.github.io/react-native/movies.json')
+        .then((response) => response.json())
+        .then((responseJson) => {
+          return responseJson.movies;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
     return (
       <ScrollView>
         <Bananas />
         <LotsOfGreetings />
-
-        {
-          // commented it out because it's annoying :P
-          // <BlinkApp />
-        }
-
+        <BlinkApp />
         <LotsOfStyles />
         <FlexDimensionsBasics />
         <PizzaTranslator />
         <Butonizer />
         <FlatListBasic />
+        <SectionListBasic />
+        <MoviesWithPromise />
       </ScrollView>
     );
   }

@@ -12,19 +12,11 @@ class Greeting extends Component {
 export default class LotsOfGreetings extends Component {
     render() {
 
-        this.state = {
-            names: [
-                'Rexxar',
-                'Jaina',
-                'Valeera',
-            ]
-        }
-
-        const names = this.state.names.map(name => <Greeting name={name} />);
-
         return (
             <View style={{ alignItems: 'center' }}>
-                {names}
+                <Greeting name={'Rexxar'} />
+                <Greeting name={'Jaina'} />
+                <Greeting name={'Valeera'} />
             </View>
         );
     }
